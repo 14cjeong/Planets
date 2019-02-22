@@ -162,8 +162,11 @@ public class Main {
             System.out.println("Moons of " + body.getName());
             //We're using the getName method from the HeavenlyBody class to get the name of body,
             //which is in this case Mars
-            for(HeavenlyBody jupiterMoon: body.getSatellites()) {
-                System.out.println("\t" + jupiterMoon.getName());
+            //Also, remember that in a forEach loop, it doesn't matter what the variable name is, as long as it's used again
+            //For example, you could replace marsMoon with anything, and it'll still work.
+            //the variable is equivalent to i = 0 and then iteratates, in this case, marsMoon++
+            for(HeavenlyBody marsMoon: body.getSatellites()) {
+                System.out.println("\t" + marsMoon.getName());
             }
 
             Set<HeavenlyBody> moons = new HashSet<>(); // 1
@@ -185,6 +188,19 @@ public class Main {
                 System.out.println("\t" + moon.getName());
             }
 
+            HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+            planets.add(pluto);
+
+            for(HeavenlyBody planet : planets) {
+                System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+            } //get the name of planet forEach item in planets as well as orbital period
+
+            //Object is the base object from which all other objects inherit from
+            Object o = new Object();
+            o.equals(o); // -- referential equality
+            "pluto".equals("");
+            // -- string equals method.
+            //if string is being compared to itself, it will return true
         }
 
 }
@@ -202,3 +218,10 @@ public class Main {
 //concept to understand as a developer. I'm going to have to investigate what this is actually letter
 
 //HashSet is slower than HashMap, for example, but I don't know why. I'll have to look into this later.
+
+//Some more basic stuff here
+//I never knew what the "==" was officially called.
+//It's called a relational operator and tests for equality, whether whatever on the left is equal to the right
+//A single "=" is an assignment operator, which assigns a value to a variable
+
+//if two objects compare equal they must have the same hashcode. Not sure what that means yet.
